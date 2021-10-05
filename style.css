@@ -1,0 +1,225 @@
+@font-face{
+src: url('Tarot-Text.ttf');
+font-family: tarottext;
+}
+
+@font-face{
+src: url('Montserrat-Medium.ttf');
+font-family: montserrat;
+}
+
+@font-face{
+src: url('Roboto-Light.ttf');
+font-family: robotolight;
+}
+
+body, html{
+max-height: 100%;
+margin: 0;
+/* background-color: #333; */
+}
+
+body{
+background-image: url("./images/page-bg.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+/* Bodymovin Animation Container */
+
+#bm{
+width: 50vw;
+height:100vh;
+padding-left:10%;
+}
+
+#bm2{
+  width: 30vw;
+  height:30vh;
+  }
+
+#bm svg{
+width:120%!important;
+}
+
+/* Background card */
+
+.bgcard{
+width:9.4vw;
+display: inline-block;
+position:absolute;
+left:35.4%;
+top:66.2%;
+display:none;
+cursor: pointer;
+
+}
+
+/* Position absolute problem maybe fix: https://webplatform.github.io/docs/tutorials/absolute_and_fixed_positioning/  */
+
+/* Animation making card unclickable start */
+
+.animstart{
+animation-name: examples;
+animation-duration: 1s;
+}
+
+@keyframes examples {
+    0%   { pointer-events: none;}
+    100% { pointer-events: none;}
+}
+
+.tarots{
+z-index: 100;
+transform: rotateY(180deg);
+width: 9.3vw;
+height: 16.3vw;
+font-size: 1.2vw;
+transition: 0.6s;
+transform-style: preserve-3d;
+position: relative;
+animation-name: flip;
+animation-duration: 0.6s;
+animation-fill-mode: forwards;
+animation-delay: 0s;
+}
+
+@keyframes flip {
+from { transform: rotateY(180deg); left: -10vw; }
+to { transform: rotateY(0deg); left: 0vw; }
+}
+
+ @keyframes flips {
+from { transform: rotateY(0deg); left: -10vw; }
+to { transform: rotateY(180deg); left: 0vw; }
+}
+
+.frontcard {
+width: 9.3vw;
+z-index: 800;
+transform: rotateY(0deg);
+transition: 0.6s;
+transform-style: preserve-3d;
+position: relative;
+animation-name: flips;
+animation-duration: 0.6s;
+animation-fill-mode: forwards;
+animation-delay: 0s;
+}
+
+.frontcard, .back {
+backface-visibility: hidden;
+position: absolute;
+}
+
+.text-wrap{
+/* padding-left: 200px; */
+margin: 0 auto;
+width: 50vw;
+/* position: absolute; */
+color: white;
+}
+
+p{
+top: 10%;
+animation-name: hidden;
+animation-duration: 0.6s;
+font-family: robotolight;
+letter-spacing: 0.5px;
+line-height: 1.4;
+
+}
+
+.quotes{
+font-style: italic;
+}
+
+.icons-img{
+width: 30px;
+margin-right: 15px;
+animation-name: hidden;
+animation-duration: 0.6s;
+}
+
+.grid-elements{
+display: flex;
+align-items:center;
+}
+
+h2{
+top: 5%;
+animation-name: hidden;
+animation-duration: 0.6s;
+font-family: tarottext;
+letter-spacing: 3px;
+}
+
+.pulled-tarot-container{
+position: absolute;
+right: 44%;
+top:66.2%;;
+display: inline-block;
+perspective: 1000;
+}
+
+.pulled-tarot-container-done{
+position: absolute;
+right: 44%;
+top:66.2%;;
+display: inline-block;
+}
+
+@keyframes example {
+    0%   { left:-10vw;}
+    25%  { left:0px;}
+    50%  { left:0px;}
+    75%  { left:0px;}
+    100% { left:0px;}
+}
+
+  @keyframes hidden {
+    0% {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.no-click{
+pointer-events: none;
+cursor: none;
+}
+
+.hide{
+display: none; 
+}
+
+.hideanim{
+  opacity: 1;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-name: fadein;
+  -webkit-animation-duration: 1s; 
+  -webkit-animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-name: fadein; 
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes fadein {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
